@@ -1,0 +1,194 @@
+<style>
+    /* Reduces space between columns when displayed vertically on mobile */
+    @media only screen and (max-width: 600px) {
+        .signatures-list {
+            gap: 0 !important;
+            flex-direction: column !important;
+        }
+
+        .column {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .signatures-grid {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust the minmax values as needed */
+        width: 100%; /* Ensure the grid takes full width of the container */
+        align-items: center; /* Vertically align grid items in the same row */
+    }
+
+</style>
+
+<br>
+<div class="center-items">
+    <h1>
+        {{ if eq .Type "carta-aberta" }}
+            Resumo
+        {{ else }}
+            Summary
+        {{ end }}
+    </h1>
+</div>
+<br>
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                {{ range .Params.resumo }}
+                    <p>{{ . }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</article>
+<br>
+<div class="center-items" style="gap:50px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        {{ if eq .Type "carta-aberta" }}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScJXqj-BEqbSJPXNnCrGlSzpJrwiGw4tb7Z2yABaUWSMSZKdg/viewform?usp=sharing">
+                <button class="green-button">
+                    Assinar individualmente*
+                </button>
+            </a>
+        {{ else }}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdM4EcVWPvQKbN53B-kirZkxQKZ_4FeTWRlXGThTFuE2ErbYQ/viewform?usp=sharing">
+                <button class="green-button">
+                    Sign the petition*
+                </button>
+            </a>
+        {{ end }}
+        <small><small>
+            {{ if eq .Type "carta-aberta" }}
+                *- Por favor usar o endereço de email institucional.
+            {{ else }}
+                *- Please use your institutional email address.
+            {{ end }}
+        </small></small>
+    </div>
+    <!-- This one is Portuguese-only -->
+    {{ if eq .Type "carta-aberta" }}
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMYnswUlEdBU6brlTyQbbUQmrozD8855HR_mHOSInd-xroQw/viewform?usp=sharing">
+                <button class="green-button">Assinar coletivamente</button>
+            </a>
+        &nbsp;
+        </div>
+    {{ end }}
+</div>
+<br><br>
+<hr/>
+<div class="center-items">
+    <h1>
+        {{ if eq .Type "carta-aberta" }}
+            Assinaturas
+        {{ else }}
+            Signatures
+        {{ end }}
+    </h1>
+</div>
+<br>
+<div class="center-items">
+    <h2>
+        {{ if eq .Type "carta-aberta" }}
+            Individuais
+        {{ else }}
+            Individual
+        {{ end }}
+    </h2>
+</div>
+<br>
+<div class="center-items signatures-list" style="display: flex; gap:50px; margin-left: auto; margin-right: auto; text-align: center; max-width: 65%">
+    <div class="column">
+        {{ range .Params.signatures_1 }}
+            <p style="margin:0">{{ . }}</p>
+        {{ end }}
+    </div>
+    <div class="column">
+        {{ range .Params.signatures_2 }}
+            <p style="margin:0">{{ . }}</p>
+        {{ end }}
+    </div>
+    <div class="column">
+        {{ range .Params.signatures_3 }}
+            <p style="margin:0">{{ . }}</p>
+        {{ end }}
+    </div>
+</div>
+<div class="center-items">
+    <h4>
+        {{ if eq .Type "carta-aberta" }}
+            ... e mais <span style="color: #5ab501;">{{ .Params.extra_signatures }}</span> pessoas.
+        {{ else }}
+            ... and <span style="color: #5ab501;">{{ .Params.extra_signatures }}</span> more people.
+        {{ end }}
+    </h4>
+</div>
+<div class="center-items">
+    ({{ dateFormat "2006-01-02" .Params.date }})
+</div>
+<br><br>
+<div class="center-items">
+    <h2>
+        {{ if eq .Type "carta-aberta" }}
+            Coletivas
+        {{ else }}
+            Collective
+        {{ end }}
+    </h2>
+</div>
+<br><br>
+<div class="center-items" style="margin-left: auto; margin-right: auto; max-width: 65%;">
+    <div class="signatures-grid">
+        {{ range .Params.collective_logos }}
+            <img src="{{ . }}" width="100px">
+        {{ end }}
+    </div>
+</div>
+<br>
+<hr/>
+<br>
+<div class="center-items" style="display: flex; gap:50px; margin-left: auto; margin-right: auto; max-width: 65%">
+    <div>
+        {{ if eq .Type "carta-aberta" }}
+            <h1>Como apoiar</h1>
+            <div style="font-size: 18px;">
+                <p><b>1. Assina!</b> Convida outros membros da comunidade do Técnico - alunos ou não - a virem conhecer e assinar esta petição.</p>
+                
+                <p><b>2. Partilha</b> nas tuas redes sociais.</p>
+                
+                <p><b>3. Convida</b> núcleos, associações e organizações a vir conhecer esta petição! Incentiva-os a entrar em contacto connosco.</p>
+                
+                <p><b>4. Contacta-nos</b> se tiveres alguma questão ou comentário!</p>
+            </div>
+        {{ else }}
+            <h1>How to support</h1>
+            <div style="font-size: 18px;">
+                <p><b>1. Sign!</b> Invite other members of the Técnico community - students or not - to get to know and sign this petition.</p>
+                
+                <p><b>2. Share</b> on your social networks.</p>
+                
+                <p><b>3. Invite</b> clubs, associations and organizations to get to know this petition! Encourage them to contact us.</p>
+                
+                <p><b>4. Contact us</b> if you have any question or comment!</p>
+            </div>
+        {{ end }}
+    </div>
+    <div>
+        {{ if eq .Type "carta-aberta" }}
+            <button class="green-button" onclick="copyLink('https:\/\/ambientalist.tecnico.ulisboa.pt/carta-aberta', 'Copiado!')">Copia o link aqui!</button>
+        {{ else }}
+            <button class="green-button" onclick="copyLink('https:\/\/ambientalist.tecnico.ulisboa.pt/open-letter', 'Copied!')">Copy the link here!</button>
+        {{ end }}
+    </div>
+</div>
+<hr/>
+<br>
+
+<script>
+    function copyLink(link, notice_text) {
+        navigator.clipboard.writeText(link);
+        alert(notice_text);
+    }
+</script>

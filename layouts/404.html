@@ -1,0 +1,37 @@
+{{ define "main" }}
+<!--
+    Modified version of the same-name file at Zhao Huabing's Hugo Clean White theme
+    https://github.com/zhaohuabing/hugo-theme-cleanwhite
+-->
+
+<!-- Script to replace the header with a full page -->
+<!-- If noscript it still has a normal appearance -->
+<script>
+    var header = `
+        <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('{{ .Site.Params.image_404 }}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading" id="tag-heading">
+                            <h1>404</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    `;
+
+    // Create a temporary div element to hold the HTML block
+    var tempDiv = document.createElement('div');
+    tempDiv.innerHTML = header;
+
+    // Append the content of the temporary div to the body
+    while (tempDiv.firstChild) {
+        document.body.appendChild(tempDiv.firstChild);
+    }
+
+    // Add the 'page-fullscreen' class to the body
+    document.body.classList.add('page-fullscreen');
+</script>
+{{ end }}

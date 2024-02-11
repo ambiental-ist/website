@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="container" style="padding-left: 14%; padding-right: 14%;">
+  {{ range .Data.Pages }}
+    {{ partial "listing_rows_unit.html" . }}
+  {{ end }}
+</div>
+{{ end }}

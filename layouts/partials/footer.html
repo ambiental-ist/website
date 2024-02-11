@@ -1,0 +1,49 @@
+<!--
+    Modified version of the same-name file at Zhao Huabing's Hugo Clean White theme
+    https://github.com/zhaohuabing/hugo-theme-cleanwhite
+-->
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    {{ with .Site.Params.social.email }}
+                    <li>
+                        <a href="mailto:{{ . }}">
+                            <img src="/img/email.png" width="32" lenght="32" class="linkImage">
+                        </a>
+                    </li>
+		            {{ end }}
+                    {{ with .Site.Params.social.facebook }}
+                    <li>
+                        <a target="_blank" href="{{ . }}">
+                            <img src="/img/facebook.png" width="32" lenght="32" class="linkImage">
+                        </a>
+                    </li>
+		            {{ end }}
+                    {{ with .Site.Params.social.linkedin }}
+                    <li>
+                        <a target="_blank" href="{{ . }}">
+                            <img src="/img/linkedin.png" width="32" lenght="32" class="linkImage">
+                        </a>
+                    </li>
+		            {{ end }}
+                    {{ with .Site.Params.social.instagram }}
+                    <li>
+                        <a target="_blank" href="{{ . }}">
+                            <img src="/img/instagram.png" width="32" lenght="32" class="linkImage">
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+		            <p class="copyright text-muted">
+                    &copy; {{ .Site.Title }} {{ now.Year }} {{- if .Site.Params.icp }} | {{ with .Site.Params.icp }}{{ . | markdownify }}{{ end }}{{- end}}
+                    <br>
+                    <a href="https://github.com/ambiental-ist/website">Site source and credits here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

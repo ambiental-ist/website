@@ -1,0 +1,102 @@
+<style type="text/css">
+    header.intro-header {
+        position: relative;
+        background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}');
+    }
+
+    .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value for desired darkness */
+        z-index: 1; /* Ensure the overlay is above the text */
+    }
+
+    .post-heading {
+        position: relative; /* Make sure the text is positioned relative to the header */
+        z-index: 2; /* Ensure the text is above the overlay */
+    }
+</style>
+{{ if eq .Params.headerstyle "text" }}
+<header class="intro-header style-text" >
+{{ else }}
+<header class="intro-header">
+{{ end }}
+<div class="dark-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ .Title }}</h1>
+                    <b>
+                        <span>
+                            {{ if .Params.metadata }}
+                                {{ range $index, $element := .Params.metadata }}
+                                    {{ if .link }}
+                                        <a href="{{ .link }}">{{ .text }}</a>
+                                    {{ else }}
+                                        {{ .text }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ else }}
+                                {{ if eq .Type "article" }}
+                                    {{ with .Params.date }}
+                                        {{ dateFormat "2006-01-02" . }}
+                                    {{ end }}
+                                    {{ if .Params.author }}
+                                        · {{ .Params.author }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </span>
+
+                        {{ if .Params.abstract }}
+                            <br><br>
+                            {{ .Params.abstract }}
+                        {{ end }}
+
+                        {{ if .Params.tags }}
+                            <br><br>
+                            <div class="tags">
+                                {{ range .Params.tags }}
+                                <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+                                    {{ . }}
+                                </a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+
+                        {{ if or (eq .Type "carta-aberta") (eq .Type "open-letter") }}
+                            <br>
+                            <div class="center-items">
+                                {{ if eq .Type "carta-aberta" }}
+                                    <a href="https://drive.google.com/file/d/1s9RZkgt302j7zsMYMdRRVtWFIX7tsWHf/view">
+                                        <button class="green-button">Ler texto completo</button>
+                                    </a>
+                                {{ else }}
+                                    <a href="https://drive.google.com/file/d/1cF_qs-aYlCc7ym_gm-p094rCGMYnW9co/view">
+                                        <button class="green-button">Read full text</button>
+                                    </a>
+                                {{ end }}
+                            </div>
+                            <br>
+                            <div class="center-items">
+                                {{ if eq .Type "carta-aberta" }}
+                                    <a href="/open-letter" style="color:white">
+                                        View English version
+                                    </a>
+                                {{ else }}
+                                    <a href="/carta-aberta" style="color:white">
+                                        View Portuguese version
+                                    </a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </b>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

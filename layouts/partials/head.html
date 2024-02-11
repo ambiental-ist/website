@@ -1,0 +1,66 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keyword" content="{{ .Site.Params.keyword }}">
+    <link rel="shortcut icon" href="{{ .Site.Params.favicon }}">
+
+    <title>{{ if .Title }}{{ .Title }} | {{ .Site.Params.SEOTitle }}{{ else }}{{ .Site.Params.SEOTitle }}{{ end }}</title>
+
+    <link rel="canonical" href="{{ .RelPermalink }}">
+    
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ "css/bootstrap.css" | relURL }}">
+
+    <!-- Clean White theme CSS -->
+    <link rel="stylesheet" href="{{ "css/hugo-theme-cleanwhite.css" | relURL }}">
+
+    <!-- Adding here for now because this doesn't get accepted in the CSS for some reason -->
+    <style>
+        .linkImage:hover {
+            cursor: pointer;
+        }
+
+        .green-button {
+            background-color: #5ab501;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .green-button:hover {
+            background-color: goldenrod;
+        }
+
+        .center-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .center-items {
+                flex-direction: column;
+            }
+        }
+
+        .column {
+            flex: 1;                    /* Each column takes up equal space */
+            display: flex;
+            flex-direction: column;     /* Stacks the paragraphs vertically */
+            justify-content: center;    /* Centers the paragraphs horizontally */
+            align-items: center;        /* Centers the paragraphs vertically */
+            padding: 1rem;              /* Adds some space around the content */
+        }
+        
+    </style>
+</head>

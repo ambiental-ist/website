@@ -1,0 +1,23 @@
+<div class="container">
+    <br><br>
+
+    <h1>Notícias e Iniciativas</h1>
+    <br>
+    {{ $pages := .Site.GetPage "/noticias-e-iniciativas" }}
+    {{ partial "listing_grid.html" (dict "pages" $pages "maxIndex" 3) }}
+    <div class="center-items">
+        <a href="/noticias-e-iniciativas"><button class="green-button">Ver mais ></button></a>
+    </div>
+    
+    <br><br>
+
+    <h1>Artigos</h1>
+    <br>
+    {{ $pages := .Site.GetPage "/artigos" }}
+    {{ partial "listing_grid.html" (dict "pages" $pages "maxIndex" 3) }}
+    <div class="center-items">
+        <a href="/artigos"><button class="green-button">Ver mais ></button></a>
+    </div>
+
+    <br><br><br>
+</div>

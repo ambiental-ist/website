@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+{{ partial "nav.html" . }}
+
+{{ block "header" .}}
+    {{ if eq .Type "index" }}
+        {{ partial "homepage_header.html" . }}
+
+        {{ partial "homepage_lists.html" . }}
+
+        {{ partial "petition_banner.html" . }}
+    {{ else }}
+        {{ if eq .Type "article" }}
+        {{ else }}
+            {{ if eq .Type "news_list" }}
+                
+                {{ partial "default_header.html" . }}
+
+                {{ $pages := .Site.GetPage "/noticias-e-iniciativas" }}
+                {{ partial "listing_rows.html" (dict "pages" $pages) }}
+
+            {{ else }}
+                {{ if eq .Type "articles_list" }}
+                    
+                    {{ partial "default_header.html" . }}
+
+                    {{ $pages := .Site.GetPage "/artigos" }}
+                    {{ partial "listing_rows.html" (dict "pages" $pages) }}
+
+                {{ else }}
+                    {{ if or (eq .Type "carta-aberta") (eq .Type "open-letter") }}
+                        {{ partial "dark_header" . }}
+                        {{ partial "carta_aberta.html" . }}
+                    {{ else }}
+                        {{ partial "default_header.html" . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ block "main" .}}
+{{ end }}
+
+{{ partial "footer.html" . }}

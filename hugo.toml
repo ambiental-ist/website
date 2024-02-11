@@ -1,0 +1,18 @@
+baseURL = 'https://ambientalist.tecnico.ulisboa.pt/'
+languageCode = 'pt-PT'
+title = 'AmbientalIST'
+
+[params]
+SEOTitle        = "AmbientalIST"
+favicon         = "/img/favicon.ico"
+logo            = "/img/logo.png"
+logo_header     = "/img/logo_white.png"
+header_image    = "/img/trees.jpg"
+image_404       = "/img/trees.jpg"
+petition_image  = "/img/cantina.png"
+
+[params.social]
+email           = "ambientalist.sa@aeist.pt"
+facebook        = "https://facebook.com/ambientalist.tecnico"
+linkedin        = "https://linkedin.com/company/ambientalist"
+instagram       = "https://instagram.com/ambiental.ist"

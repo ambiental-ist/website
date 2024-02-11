@@ -1,0 +1,23 @@
+<br>
+<a href="{{ .Permalink }}" class="content-link" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+    <div class="row content-item">
+        <div class="col-md-4">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" style="border-radius:5%; max-width: 100%;" class="img-fluid linkImage">
+        </div>
+        <div class="col-md-8">
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Params.abstract }}</p>
+        </div>
+    </div>
+</a>
+
+<style>
+    .content-item {
+        transition: background-color 0.3s;
+        margin-bottom: 10px;
+    }
+
+    .content-item:hover {
+        background-color: #f0f0f0;
+    }
+</style>
