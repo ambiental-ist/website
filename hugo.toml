@@ -16,3 +16,6 @@ email           = "ambientalist.sa@aeist.pt"
 facebook        = "https://facebook.com/ambientalist.tecnico"
 linkedin        = "https://linkedin.com/company/ambientalist"
 instagram       = "https://instagram.com/ambiental.ist"
+
+[markup.goldmark.renderer]
+unsafe = true
