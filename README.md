@@ -1,5 +1,5 @@
 # AmbientalIST website
-Website for AmbientalIST, made in Hugo.
+Website for AmbientalIST, made with the Hugo generator.
 
 **PULL REQUESTS ARE WELCOME!**
 
@@ -9,6 +9,8 @@ The stylesheet files `bootstrap.css` and `hugo-theme-cleanwhite.css`, which corr
 Although the layout itself is largely an original work, it borrows some code from the same repository. Every file with shared code is identified as such with a comment notice at the beginning.
 
 ## Development
+The only software you need to have installed is [Hugo](https://gohugo.io). If you have the permission to change the site, it is recommended that you also install rsync.
+
 To decouple contributions to this repository from regular content updating, subpage data is kept in a separate repository (the templates themselves being here).
 
 **If you don't have access to the separate repository, you can still contribute.**  Simply type either of these commands on the root of the cloned git repo:
@@ -31,4 +33,4 @@ For the uninitiated:
 
 * The localhost testing command is `hugo serve` (or `hugo server`).
 * The build command is `hugo`.
-* The official site update command is `scp -r public/* istXXXXXX@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/ambientalist/web`.
+* The official site update command is (replace `rsync -rc` with `scp -r` if you don't have rsync): `rsync -rc public/* istXXXXXX@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/ambientalist/web`.
