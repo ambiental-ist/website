@@ -14,7 +14,7 @@
         {{ if eq .Type "article" }}
         {{ else }}
             {{ if eq .Type "news_list" }}
-                
+
                 {{ partial "default_header.html" . }}
 
                 {{ $pages := .Site.GetPage "/noticias-e-iniciativas" }}
@@ -22,7 +22,7 @@
 
             {{ else }}
                 {{ if eq .Type "articles_list" }}
-                    
+
                     {{ partial "default_header.html" . }}
 
                     {{ $pages := .Site.GetPage "/artigos" }}
