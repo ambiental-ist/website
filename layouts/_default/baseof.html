@@ -17,7 +17,7 @@
 
                 {{ partial "default_header.html" . }}
 
-                {{ $pages := .Site.GetPage "/noticias-e-iniciativas" }}
+                {{ $pages := .Site.GetPage "/iniciativas" }}
                 {{ partial "listing_rows.html" (dict "pages" $pages) }}
 
             {{ else }}
@@ -29,11 +29,18 @@
                     {{ partial "listing_rows.html" (dict "pages" $pages) }}
 
                 {{ else }}
-                    {{ if or (eq .Type "carta-aberta") (eq .Type "open-letter") }}
-                        {{ partial "dark_header" . }}
-                        {{ partial "carta_aberta.html" . }}
-                    {{ else }}
+                    {{ if eq .Type "gwn_list" }}
                         {{ partial "default_header.html" . }}
+
+                        {{ $pages := .Site.GetPage "/gwn" }}
+                        {{ partial "listing_rows.html" (dict "pages" $pages) }}
+                    {{ else }}
+                        {{ if or (eq .Type "carta-aberta") (eq .Type "open-letter") }}
+                            {{ partial "dark_header" . }}
+                            {{ partial "carta_aberta.html" . }}
+                        {{ else }}
+                            {{ partial "default_header.html" . }}
+                        {{ end }}
                     {{ end }}
                 {{ end }}
             {{ end }}

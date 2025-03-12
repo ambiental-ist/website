@@ -1,12 +1,12 @@
 <div class="container">
     <br><br>
 
-    <h1>Notícias e Iniciativas</h1>
+    <h1>Iniciativas</h1>
     <br>
-    {{ $pages := .Site.GetPage "/noticias-e-iniciativas" }}
+    {{ $pages := .Site.GetPage "/iniciativas" }}
     {{ partial "listing_grid.html" (dict "pages" $pages "maxIndex" 3) }}
     <div class="center-items">
-        <a href="/noticias-e-iniciativas"><button class="green-button">Ver mais ></button></a>
+        <a href="/iniciativas"><button class="green-button">Ver mais ></button></a>
     </div>
 
     <br><br>
